@@ -1,0 +1,25 @@
+EXPERIMENT 1 - Corpus Analysis.
+
+Objectives:
+The objective of this experiment is to Analyze the basic structural properties of a small text corpus, including the number of documents, sentences, tokens, and types, as well as word frequency and frequency distribution, to establish a foundational understanding of the dataset before any further processing.
+
+
+Test Cases:
+The corpus was tested on:
+Simple declarative sentences
+Sentence initial capitalization variants
+Lexical repetition within a sentence
+Enumeration/ comma-seperated lists
+Compound/ technical noun phrases
+Sentence-final punctuation
+
+Observed Problems:
+Naive whitespace tokenizer keeps punctuation attached to words, and counts them as separate types from their unpunctuated forms.
+Case-sensitive splitting treats "A" and "a" as distinct types.
+Both issues inflate the type count.
+
+Research observation:
+The high TTR (0.86) reflects the corpus's small size rather than true lexical richness- with only 49 tokens, most words occur once. Repeated tokens suggest the text Centers on NLP-related terminology.
+
+Next step:
+Proceed to Experiment 2 tokenization error analysis to test whether a regex- or rule-based tokenizer correctly separates punctuation from word tokens and normalizes case, then compare type/ token counts before and after.
