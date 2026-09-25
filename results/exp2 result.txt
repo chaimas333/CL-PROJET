@@ -1,0 +1,28 @@
+EXPERIMENT 2- Error analysis
+
+Objectives:
+Test a simple regex-based tokenizer on linguistically tricky cases and compare its output against a gold-standard tokenization to determine where naive tokenization breaks down.
+
+Test Cases:
+- The tokenizer was tested on:
+- Abbreviations
+- Decimal numbers
+- URLs 
+- Email addresses
+- Hyphenated expressions
+- Contractions 
+- Uppercase abbreviations
+
+Observed Problems:
+- Predicted 59 tokens vs 38 gold tokens, a 55% over-segmentation.
+- Abbreviations split on the period for Dr. vs Dr + .
+- Decimal numbers broken at the decimal point
+- URLs shredded into fragments
+- Email addresses split at each hyphen.
+- Contractions split incorrectly.
+
+Research observation:
+All errors stem from the same root cause: the regex tokenizer treats ".", "-", "@", ":", "/", "'" as universal delimiters, without context-sensitivity. It cannot distinguish a sentence-final period from a decimal point, abbreviation marker, or URL/email component; the same character plays different roles depending on surrounding context. This confirms tokenization is not a purely mechanical operation but requires linguistic and domain knowledge.
+
+Next step:
+Proceed to experiment 3: compare this custom regex tokenizer against a standard NLP library tokenizer and the same gold standard to quantify how much a pretrained tokenizer improves on these specific error categories
