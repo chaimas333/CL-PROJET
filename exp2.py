@@ -3,10 +3,10 @@ import re
 def naivetokenize(text):
     return re.findall(r"\w+|[^\w\s]", text) #findall (pattern, text): finds all matches of pattern in text. that pattern means match either one or more word characters (\w+ -> letters digits underscore ex: Dr.) or any single non-word non-whitespace character ([^\w\s] -> punctuation like .  ,  @  -) and it returns a list of tokens.
 
-with open ("/Users/denje/Desktop/CL-PROJET/PREPA-TESTS/tokenization_test.txt", "r", encoding="utf-8") as f:
+with open ("/Users/denje/Desktop/GitHub/CL-PROJET/tokenization_test.txt", "r", encoding="utf-8") as f:
     lines =[l.strip() for l in f if l.strip()]#iterates line by line. l.strip() removes leading/trailing whitespace. "if l,strip()" removes empty lines.
     
-with open ("/Users/denje/Desktop/CL-PROJET/PREPA-TESTS/gold_tokens.txt", "r", encoding="utf-8") as f:
+with open ("/Users/denje/Desktop/GitHub/CL-PROJET/gold_tokens.txt", "r", encoding="utf-8") as f:
     gold_tokens = [l.strip() for l in f if l.strip()] #same thing just with the gold tokens which end up as my list of correct tokens to compare against
     
 pred_tokens =[]
