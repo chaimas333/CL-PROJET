@@ -1,0 +1,26 @@
+EXPERIMENT 3- Standard NLP tokenization
+
+Objectives:
+Compare the custom regex tokenizer /from exp2) against a standard NLP library tokenizer and the gold standard to quantify how much a pretrained tokenizer improves on the error categories identified earlier.
+
+Test Cases:
+The tokenizer was tested on:
+- Abbreviations
+- Decimal numbers
+- URLs 
+- Email addresses
+- Hyphenated expressions
+- Contractions 
+- Uppercase abbreviations
+
+Observed Problems:
+- Both tokenizers still over-segment relative to golf (59 and 43 vs. 38).
+- NLTK correctly handles abbreviations, decimals, and hyphenated compounds but fails on URLs, emails, and contractions.
+- The regex tokenizer fails on every category tested; none of the special cases are handled.
+- Positional match rate is a strict metric: since token counts diverge from golf early (splits shift all subsequent positions), it understates real improvement; many "mismatches" are actually correct tokens shifted by one position.
+
+Research observation:
+NLTK's rule-based/statistical tokenizer improves substantially over naive regex (39.47% vs. 5.26%), confirming that a general-purpose tokenizer encodes more linguistic knowledge than a hand-written pattern. However, it still lacks robust handling of URLs and emails, domain-specific token types not well covered by its general English-text training. This shows that even "standard" tokenizers require task-specific customization for specialized text.
+
+Next step:
+Proceed to Experiment 4, apply stemming/lemmatization to the NLTK-tokenized output, and examine how morphological analysis interacts with tokenization quality (example: does a mis-tokenized "n't" still lemmatize sensibly?)

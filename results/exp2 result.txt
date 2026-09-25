@@ -4,7 +4,7 @@ Objectives:
 Test a simple regex-based tokenizer on linguistically tricky cases and compare its output against a gold-standard tokenization to determine where naive tokenization breaks down.
 
 Test Cases:
-- The tokenizer was tested on:
+The tokenizer was tested on:
 - Abbreviations
 - Decimal numbers
 - URLs 

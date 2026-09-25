@@ -6,12 +6,12 @@ The objective of this experiment is to Analyze the basic structural properties o
 
 Test Cases:
 The corpus was tested on:
-Simple declarative sentences
-Sentence initial capitalization variants
-Lexical repetition within a sentence
-Enumeration/ comma-seperated lists
-Compound/ technical noun phrases
-Sentence-final punctuation
+-Simple declarative sentences
+-Sentence initial capitalization variants
+-Lexical repetition within a sentence
+-Enumeration/ comma-seperated lists
+-Compound/ technical noun phrases
+-Sentence-final punctuation
 
 Observed Problems:
 Naive whitespace tokenizer keeps punctuation attached to words, and counts them as separate types from their unpunctuated forms.
